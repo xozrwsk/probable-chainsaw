@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE RACINE TYPE "URL">
+  <personnes>
+    <personne id="5">
+      <nom>PERROUAULT</nom>
+      <prenom>Jérémy</prenom>
+    <personne>
+    <personne id="6">
+      <nom>PERROUAULT</nom>
+      <prenom>Alissa</prenom>
+    </personne>
+  </personnes>
+
+OU
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+  <personnes>
+    <personne id="5" nom="PERROUAULT" prenom="Jérémy" />
+  </personnes>
+
+
+
+<!ELEMENT personnes (personne)+>
+<!ELEMENT personne (nom?,prenom?,email*)>
+
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT prenom (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+
+<!ATTLIST personne id ID #REQUIRED>
+<!ATTLIST personne nom CDATA #IMPLIED>
+<!ATTLIST personne prenom CDATA #IMPLIED>
+
+<!DOCTYPE personnes SYSTEM "les-personnes.dtd">
+
+
+
+<?xml version="1.0" encoding="UTF-8">
+
+<xsd:schema
+  xmlns=""
+  xmlns:personne=""
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="">
+
+<xsd:element name="personnes">
+<xsd:complexType>
+  <xsd:sequence>
+    <xsd:element ref="nom" />
+    <xsd:element ref="prenom" />
+    <xsd:element ref="email" maxOccurs="unbounded" />
+  </xsd:sequence>
+<xsd:complexType>
+
+<xsd:unique nom="">
+  <xsd:selector xpath="personne" />
+  <xsd:field xpath="">
+
+
+</xsd:element>
